@@ -1,0 +1,207 @@
+:root {
+  --primary: hsl(217, 99%, 26%);
+  --gray: hsl(217, 11%, 64%);
+  --white: hsl(216, 100%, 95%);
+  --highlight: rgba(251, 255, 38, 0.493);
+}
+
+body {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: grid;
+  grid-auto-flow: column;
+  width: auto;
+  grid-template-columns: 450px auto;
+  grid-template-areas:
+    'head head'
+    'menu main'
+    'foot foot';
+}
+
+.header { grid-area: head; }
+.nav { grid-area: menu; }
+.img_card__container { grid-area: main; }
+.footer { grid-area: foot; }
+
+.header {
+  background-color: var(--primary);
+  color: var(--white);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+.header__title {
+  font-size: 3rem;
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+}
+
+.nav__container {
+  box-shadow: var(--gray) 4px 4px 10px 2px;
+  row-gap: 24px;
+  min-width: 200px;
+  padding: 12px;
+  margin-left: 30px;
+  display: grid;
+  max-width: 200px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.nav__link, .nav__link--active {
+  color: var(--primary);
+  width: 180px;
+  border-bottom: var(--primary) 1px solid;
+  text-align: center;
+  text-decoration: none;
+  max-width: 200px;
+}
+.nav__link::after, .nav__link--active::after {
+  content: "";
+  bottom: 0;
+  max-width: 200px;
+}
+
+.nav__link--active {
+  box-shadow: inset var(--highlight) 200px 0px 0px 1px;
+  padding: 0;
+  max-width: 200px;
+}
+
+.img_card {
+  display: inline-grid;
+  width: 300px;
+  height: auto;
+  box-shadow: var(--gray) 4px 4px 10px 2px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+}
+
+.img_card__img {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.img_card__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  grid-auto-rows: 350px;
+}
+
+.img_card__text {
+  padding: 0 12px 12px 12px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .header__title {
+    font-size: 3rem;
+  }
+  .nav__container {
+    width: 80vw;
+    min-width: 200px;
+  }
+  .nav__link, .nav__link--active {
+  }
+  .nav__link--active {
+    padding: 0;
+  }
+  .nav__link::after, .nav__link--active::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-columns: 100vw;
+    grid-template-areas:
+      'head head'
+      'menu menu'
+      'main main'
+      'foot foot';
+  }
+  .header__title {
+    font-size: 2rem;
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+  }
+
+  .nav__container {
+    box-shadow: var(--gray) 4px 4px 10px 2px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    display: inline-block;
+    text-align: center;
+    max-width: 100vw;
+    padding: 30px 0px 30px 30px;
+  }
+
+  .nav__link, .nav__link--active {
+    color: var(--primary);
+    border-bottom: var(--primary) 1px solid;
+    margin-right: 30px;
+  }
+
+    .img_card__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+      grid-auto-rows: 350px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+  body {
+    grid-template-columns: 100vw;
+    grid-template-areas:
+      'head'
+      'menu'
+      'main'
+      'foot';
+  }
+  .header__title {
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+  }
+
+  .nav__container {
+    box-shadow: var(--gray) 4px 4px 10px 2px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    display: inline-block;
+    text-align: center;
+    max-width: 100vw;
+    padding: 30px 0px 30px 30px;
+  }
+
+  .nav__link, .nav__link--active {
+    color: var(--primary);
+    border-bottom: var(--primary) 1px solid;
+    margin-right: 30px;
+  }
+
+    .img_card__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+      grid-auto-rows: 350px;
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+}
